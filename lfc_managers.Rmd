@@ -1,0 +1,75 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r load packages}
+#install.packages("engsoccerdata")
+library(engsoccerdata, quietly = T)
+library(tidyverse, quietly = T)
+library(lubridate, quietly = T)
+library(stringr, quietly = T)
+```
+
+```{r load data}
+# Load manager data
+mngrs <- read_csv(
+  "data/Liverpool Managers (wikipedia) - Sheet1.csv", 
+  col_names = c(
+    "manager", "nationality", "start", "end", "played", "wins", "draws", 
+    "losses", "win_perc", "l1", "l2", "fa", "fl", "cs", "ec", "uc", "us", "notes"
+  ), 
+  col_types = list(
+    start = col_date(format = "%d %B %Y"), 
+    end   = col_date(format = "%d %B %Y")
+  ), 
+  skip = 2
+)
+
+# Correcting rows 7, 9, and 23 which have a month and year format
+mngrs$end[7] <- as.Date("1951-01-31")
+mngrs$start[9] <- as.Date("1956-05-05")
+mngrs$end[23] <- Sys.Date()
+
+mngrs$manager <- str_replace_all(mngrs$manager, "\"", "")
+#mngrs$manager <- str_replace_all(mngrs$manager, "\\n", "and")
+
+# Load English league data
+data("england")
+england <- as_data_frame(england) %>%
+  mutate(Date = as.Date(as.character(Date), format = "%Y-%m-%d"))
+```
+
+```{r clean data}
+# # Plug in missing start data
+# mngrs <- mngrs %>%
+#   # for Phil Taylor
+#   mutate(start = if_else(is.na(start), as.Date("1956-05-05"), start)) %>% 
+#   # for George Kay
+#   mutate(end   = if_else(is.na(end), as.Date("1951-03-22"), end))
+
+# Subset Liverpool home and away games
+lfc <- england %>%
+  filter(home == "Liverpool" | visitor == "Liverpool") %>%
+  arrange(Date)
+
+# Create a new column for managers
+lfc_mngrs <- lfc %>%
+  mutate(mngr = "")
+
+# TODO rework this as a function
+# Loop to add the rest of the managers
+for (i in 1:nrow(mngrs)) {
+ lfc_mngrs <- lfc_mngrs %>% 
+  mutate(mngr = ifelse(
+    Date >= mngrs$start[i] & Date <= mngrs$end[i], 
+    mngrs$manager[i], 
+    mngr
+    ))
+}
+```
+
+```{r}
+# Store records with no manager here
+no_mngr <- filter(lfc_mngrs, mngr == "")
+```
