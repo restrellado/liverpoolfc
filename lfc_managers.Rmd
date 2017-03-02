@@ -9,38 +9,48 @@ library(engsoccerdata, quietly = T)
 library(tidyverse, quietly = T)
 library(lubridate, quietly = T)
 library(stringr, quietly = T)
+library(rvest, quietly = T)
 ```
 
-```{r load data}
-# Load manager data
-mngrs <- read_csv(
-  "data/Liverpool Managers (wikipedia) - Sheet1.csv", 
-  col_names = c(
-    "manager", "nationality", "start", "end", "played", "wins", "draws", 
-    "losses", "win_perc", "l1", "l2", "fa", "fl", "cs", "ec", "uc", "us", "notes"
-  ), 
-  col_types = list(
-    start = col_date(format = "%d %B %Y"), 
-    end   = col_date(format = "%d %B %Y")
-  ), 
-  skip = 2
-)
+```{r scrape manager data}
+site <- 
+  read_html("https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers")
 
-# Correcting rows 7, 9, and 23 which have a month and year format
-mngrs$end[7] <- as.Date("1951-01-31")
-mngrs$start[9] <- as.Date("1956-05-05")
-mngrs$end[23] <- Sys.Date()
+mtable <- site %>%
+  html_nodes("table") %>%
+  .[[3]] %>%
+  html_table(fill = T) %>%
+  as_tibble()
 
-mngrs$manager <- str_replace_all(mngrs$manager, "\"", "")
-#mngrs$manager <- str_replace_all(mngrs$manager, "\\n", "and")
+mngrs_clean <- mtable %>%
+  select(-Notes) %>%
+  filter(row_number() != 1)
 
-# Load English league data
-data("england")
-england <- as_data_frame(england) %>%
-  mutate(Date = as.Date(as.character(Date), format = "%Y-%m-%d"))
+# Remove zeros
+mngrs_clean$From <- str_sub(mngrs_clean$From, 9, 18)
+mngrs_clean$To <- str_sub(mngrs_clean$To , 9, 18)
+mngrs_clean$P <- str_sub(mngrs_clean$P, 21)
+mngrs_clean$W <- str_sub(mngrs_clean$W, 21)
+mngrs_clean$D <- str_sub(mngrs_clean$D, 21)
+mngrs_clean$L <- str_sub(mngrs_clean$L, 21)
+mngrs_clean$`Win %` <- str_sub(mngrs_clean$`Win %`, 21)
+
+# Convert From and To to dates
+mngrs_clean <- mngrs_clean %>%
+  mutate(From = as.Date(From)) %>%
+  mutate(To = as.Date(To)) %>% 
+  mutate(To = ifelse(is.na(To), Sys.Date(), To))
+
+# Convert manager names to last, first format
+s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
+s2 <- str_sub(s[, 2], 1, .5 * nchar(s[, 2]))
+newstrings <- cbind(s, s2)
+newstrings_names <- paste(newstrings[, 1], newstrings[,"s2"])
+
+mngrs_clean$Name <- newstrings_names
 ```
 
-```{r clean data}
+```{r create lfc tibble}
 # # Plug in missing start data
 # mngrs <- mngrs %>%
 #   # for Phil Taylor
@@ -50,20 +60,22 @@ england <- as_data_frame(england) %>%
 
 # Subset Liverpool home and away games
 lfc <- england %>%
-  filter(home == "Liverpool" | visitor == "Liverpool") %>%
+  filter(home == "Liverpool" | visitor == "Liverpool") %>% 
+  mutate(Date = as.Date(Date)) %>%
   arrange(Date)
 
 # Create a new column for managers
 lfc_mngrs <- lfc %>%
+  as_tibble() %>%
   mutate(mngr = "")
 
 # TODO rework this as a function
 # Loop to add the rest of the managers
-for (i in 1:nrow(mngrs)) {
+for (i in 1:nrow(mngrs_clean)) {
  lfc_mngrs <- lfc_mngrs %>% 
   mutate(mngr = ifelse(
-    Date >= mngrs$start[i] & Date <= mngrs$end[i], 
-    mngrs$manager[i], 
+    Date >= mngrs_clean$From[i] & Date <= mngrs_clean$To[i], 
+    mngrs_clean$Name[i], 
     mngr
     ))
 }
