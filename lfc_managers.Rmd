@@ -87,12 +87,13 @@ no_mngr <- filter(lfc_mngrs, mngr == "")
 ```
 
 ```{r}
-# New goals column
+# New goals column and at Anfield column
 lfc_mngrs <- lfc_mngrs %>% 
   mutate(
     lfc_goals = 0, 
-    lfc_goals = ifelse(home == "Liverpool", hgoal, lfc_goals), 
-    lfc_goals = ifelse(visitor == "Liverpool", vgoal, lfc_goals)
+    lfc_goals = ifelse(home == "Liverpool", hgoal, vgoal), 
+    at_anf = "", 
+    at_anf = ifelse(home == "Liverpool", "Anfield", "Away")
     )
 ```
 
@@ -106,9 +107,25 @@ qplot(lfc_goals, data = lfc_mngrs, facets = ~mngr)
 ```
 
 ```{r}
+ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = c(1:nrow(lfc_mngrs)), color = mngr)) + 
+  geom_point(alpha = .5, position = "jitter")
+```
+
+Whether or not Liverpool were playing at Anfield could be associated with the number of goals Liverpool scored.
+
+```{r}
+ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = c(1:nrow(lfc_mngrs)), color = at_anf)) + 
+  geom_point(alpha = .5, position = "jitter")
+```
+
+```{r}
+ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = at_anf)) + 
+  geom_boxplot()
+```
+
+```{r}
 mngr_avg <- lfc_mngrs %>% 
   group_by(mngr) %>% 
   summarise(n = n(), goal_avg = mean(lfc_goals)) %>% 
   arrange(desc(goal_avg))
 ```
-
