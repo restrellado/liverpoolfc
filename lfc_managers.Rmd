@@ -85,3 +85,30 @@ for (i in 1:nrow(mngrs_clean)) {
 # Store records with no manager here
 no_mngr <- filter(lfc_mngrs, mngr == "")
 ```
+
+```{r}
+# New goals column
+lfc_mngrs <- lfc_mngrs %>% 
+  mutate(
+    lfc_goals = 0, 
+    lfc_goals = ifelse(home == "Liverpool", hgoal, lfc_goals), 
+    lfc_goals = ifelse(visitor == "Liverpool", vgoal, lfc_goals)
+    )
+```
+
+```{r}
+ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = goaldif, color = mngr)) + 
+  geom_point(alpha = .5, position = "jitter")
+```
+
+```{r}
+qplot(lfc_goals, data = lfc_mngrs, facets = ~mngr)
+```
+
+```{r}
+mngr_avg <- lfc_mngrs %>% 
+  group_by(mngr) %>% 
+  summarise(n = n(), goal_avg = mean(lfc_goals)) %>% 
+  arrange(desc(goal_avg))
+```
+
