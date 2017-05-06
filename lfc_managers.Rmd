@@ -1,6 +1,8 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Liverpool FC: Manager Analysis"
+output:
+  html_document: default
+  html_notebook: default
 ---
 
 ```{r load packages}
@@ -11,6 +13,12 @@ library(lubridate, quietly = T)
 library(stringr, quietly = T)
 library(rvest, quietly = T)
 ```
+
+## Purpose 
+
+## Making the Liverpool Managers Dataset 
+
+The managers and the years they managed Liverpool FC are scraped from the [Wikipedia page for LFC managers](https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers).
 
 ```{r scrape manager data}
 site <- 
@@ -50,6 +58,8 @@ newstrings_names <- paste(newstrings[, 1], newstrings[,"s2"])
 mngrs_clean$Name <- newstrings_names
 ```
 
+We'll work with the English football dataset from the `engsoccerdata` to create a dataframe of Liverpool games and then we'll populate a new `mngr` column with the names of managers we got from Wikipedia. 
+
 ```{r create lfc tibble}
 # # Plug in missing start data
 # mngrs <- mngrs %>%
@@ -81,10 +91,16 @@ for (i in 1:nrow(mngrs_clean)) {
 }
 ```
 
+There are still a handful of years that don't have a manager assigned, so we'll store them in this dataframe to be dealt with at a different time. 
+
 ```{r}
 # Store records with no manager here
 no_mngr <- filter(lfc_mngrs, mngr == "")
+
+nrow(no_mngr)
 ```
+
+To make it easier to look at the goals that Liverpool scored in each game and whether or not the games were at Anfield, we'll add columns for LFC goals and if the game was played at Anfield. 
 
 ```{r}
 # New goals column and at Anfield column
@@ -97,9 +113,32 @@ lfc_mngrs <- lfc_mngrs %>%
     )
 ```
 
+## Exploratory Analysis 
+
+Note here that goal difference is calculated by subtracting the number of goals that the visiting team scored from the number of goals that the home team scored, making it effectively the goal difference of the home team. 
+
+Liverpool have one by some big margins at Anfield and they've never been able to match their best winning goal differences away from home. The largest margin Liverpool have won by at home was against Rotherham Town. The largest they won by while away was against Burton Swifts. 
+
 ```{r}
-ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = goaldif, color = mngr)) + 
-  geom_point(alpha = .5, position = "jitter")
+gdiff <- lfc_mngrs$goaldif
+
+ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = goaldif, color = at_anf)) + 
+  scale_color_discrete(guide_legend(title = "")) +
+  geom_point(alpha = .25, position = "jitter", size = 2) + 
+  scale_y_continuous(breaks = c(0:10)) +
+  scale_x_continuous(breaks = c(-10:10)) +
+  annotate("text", 
+           max(gdiff) - 1, 
+           lfc_mngrs$lfc_goals[which.max(gdiff)], 
+           label = paste("vs.", lfc_mngrs$visitor[which.max(gdiff)])) +
+  annotate("text", 
+           min(gdiff) + 1, 
+           lfc_mngrs$lfc_goals[which.min(gdiff)], 
+           label = paste("vs.", lfc_mngrs$home[which.min(gdiff)])) +
+  labs(title = "Goal Difference vs. LFC Goals", 
+       subtitle = "English league games from 1893-2016", 
+       x = "Home Team Goal Difference", 
+       y = "LFC Goals")
 ```
 
 ```{r}
