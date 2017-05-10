@@ -168,3 +168,52 @@ mngr_avg <- lfc_mngrs %>%
   summarise(n = n(), goal_avg = mean(lfc_goals)) %>% 
   arrange(desc(goal_avg))
 ```
+
+## Comparing Win Ratios
+
+```{r}
+win_ratios <- lfc_mngrs %>% 
+  mutate(win = 0,
+         win = ifelse(home == "Liverpool" & result == "H", 1, win), 
+         win = ifelse(visitor == "Liverpool" & result == "A", 1, win)) %>% 
+  select(mngr, at_anf, win) %>% 
+  group_by(mngr) %>% 
+  summarise(total_hwins = sum(at_anf == "Anfield" & win == 1), 
+            total_hgames = sum(at_anf == "Anfield"), 
+            total_awins = sum(at_anf != "Anfield" & win == 1), 
+            total_agames = sum(at_anf != "Anfield")) %>% 
+  ungroup() %>% 
+  mutate(h_odds = (total_hwins / total_hgames) / (1 - total_hwins / total_hgames), 
+         a_odds = (total_awins / total_agames) / (1 - total_awins / total_agames), 
+         log_odds_ratio = log(h_odds / a_odds)) %>% 
+  filter(total_hgames + total_agames >= 30)
+```
+
+```{r}
+ggplot(data = win_ratios, aes(x = reorder(mngr, log_odds_ratio), 
+                              y = log_odds_ratio)) + 
+  geom_point(aes(size = total_hgames + total_agames), 
+             alpha = .75, color = "red") + 
+  geom_segment(aes(x = mngr, xend = mngr, y = 0, yend = log_odds_ratio), 
+               size = 1, color = "red") +
+  coord_flip() + 
+  scale_y_continuous(breaks = seq(-1, 2), labels = c("-1", "same", "1", "2")) +
+  labs(title = "Liverpool Home Wins Odds vs. Away Wins Odds", 
+       subtitle = "Top Flight League Games 1893 - 2016", 
+       x = "", y = "Log Odds Ratio", size = "Total Games")
+```
+
+Test `win_ratio` by looking at Bob Paisley's number of home and away games.
+
+```{r}
+bp <- lfc_mngrs %>% 
+  mutate(win = 0,
+         win = ifelse(home == "Liverpool" & result == "H", 1, win), 
+         win = ifelse(visitor == "Liverpool" & result == "A", 1, win)) %>% 
+  filter(mngr == "Paisley, Bob") 
+
+summarise(bp, home_games = sum(at_anf == "Anfield"),
+              away_games = sum(at_anf != "Anfield"),
+              home_wins = sum(at_anf == "Anfield" & win == 1), 
+              away_wins = sum(at_anf != "Anfield"&  win == 1))
+```
