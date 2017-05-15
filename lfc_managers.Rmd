@@ -1,8 +1,8 @@
 ---
-title: "Liverpool FC: Manager Analysis"
+title: 'Liverpool FC: Manager Analysis'
 output:
-  html_document: default
   html_notebook: default
+  html_document: default
 ---
 
 ```{r load packages}
@@ -61,13 +61,6 @@ mngrs_clean$Name <- newstrings_names
 We'll work with the English football dataset from the `engsoccerdata` to create a dataframe of Liverpool games and then we'll populate a new `mngr` column with the names of managers we got from Wikipedia. 
 
 ```{r create lfc tibble}
-# # Plug in missing start data
-# mngrs <- mngrs %>%
-#   # for Phil Taylor
-#   mutate(start = if_else(is.na(start), as.Date("1956-05-05"), start)) %>% 
-#   # for George Kay
-#   mutate(end   = if_else(is.na(end), as.Date("1951-03-22"), end))
-
 # Subset Liverpool home and away games
 lfc <- england %>%
   filter(home == "Liverpool" | visitor == "Liverpool") %>% 
@@ -142,7 +135,18 @@ ggplot(data = lfc_mngrs, aes(y = lfc_goals, x = goaldif, color = at_anf)) +
 ```
 
 ```{r}
-qplot(lfc_goals, data = lfc_mngrs, facets = ~mngr)
+#qplot(lfc_goals, data = lfc_mngrs, facets = ~mngr, binwidth = 1)
+group_by(lfc_mngrs, mngr) %>% 
+  mutate(n = n()) %>% 
+  ungroup() %>% 
+  filter(n >= 38) %>% 
+  ggplot(aes(x = lfc_goals)) + 
+  geom_histogram(bins = 20) + 
+  scale_x_continuous(seq(0, 10, by = 1)) +
+  coord_cartesian(c(0, 7)) +
+  facet_wrap(~ mngr) + 
+  labs(title = "Distribution of Goals Scored", 
+       x = "Goals", y = "")
 ```
 
 ```{r}
