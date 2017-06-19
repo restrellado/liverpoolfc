@@ -193,6 +193,16 @@ win_ratios <- lfc_mngrs %>%
   filter(total_hgames + total_agames >= 30)
 ```
 
+Write the win ratios data set and the Liverpool managers dataset as CSVs.
+
+```{r}
+# Write win ratios data set
+write_csv(win_ratios, "output/lfc_win_ratios.csv")
+
+# Write LFC managers dataset 
+write_csv(lfc_mngrs, "output/lfc_manager_games.csv")
+```
+
 ```{r}
 ggplot(data = win_ratios, aes(x = reorder(mngr, log_odds_ratio), 
                               y = log_odds_ratio)) + 
