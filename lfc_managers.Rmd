@@ -110,7 +110,7 @@ lfc_mngrs <- lfc_mngrs %>%
 
 Note here that goal difference is calculated by subtracting the number of goals that the visiting team scored from the number of goals that the home team scored, making it effectively the goal difference of the home team. 
 
-Liverpool have one by some big margins at Anfield and they've never been able to match their best winning goal differences away from home. The largest margin Liverpool have won by at home was against Rotherham Town. The largest they won by while away was against Burton Swifts. 
+Liverpool have won by some big margins at Anfield and they've never been able to match their best winning goal differences away from home. The largest margin Liverpool have won by at home was against Rotherham Town. The largest they won by while away was against Burton Swifts. 
 
 ```{r}
 gdiff <- lfc_mngrs$goaldif
