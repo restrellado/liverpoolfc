@@ -215,6 +215,8 @@ ggplot(data = win_ratios, aes(x = reorder(mngr, log_odds_ratio),
   labs(title = "Liverpool Home Wins Odds vs. Away Wins Odds", 
        subtitle = "Top Flight League Games 1893 - 2016", 
        x = "", y = "Log Odds Ratio", size = "Total Games")
+
+ggsave("output/home_away.png")
 ```
 
 Test `win_ratio` by looking at Bob Paisley's number of home and away games.
