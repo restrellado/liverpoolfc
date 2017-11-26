@@ -1,0 +1,214 @@
+---
+title: LFC’s Home and Away Wins
+author: Ryan Estrellado
+date: '2017-11-23'
+slug: lfc-home-and-away-odds
+categories: []
+tags: []
+---
+
+[Anfield](https://en.wikipedia.org/wiki/Anfield) in Liverpool is one of the legendary stadiums of English football. [Fortress Anfield](http://www.telegraph.co.uk/football/2016/09/09/jurgen-klopp-vows-to-make-anfield-a-fortress/) has been the home to many historic games, including Liverpool's [4-3 win against Newcastle in 1996](https://en.wikipedia.org/wiki/Liverpool_F.C._4%E2%80%933_Newcastle_United_F.C._(1996)) and my personal favorite, [Liverpool's 3-1 win against Olympiacos](http://www.uefa.com/uefachampionsleague/season=2004/matches/round=1968/match=1077225/postmatch/report/) to go through to the Champions League's last 16. But I've been curious about how much of a difference Anfield has made historically from manager to manager. In this post I'll be exploring the question: Have all of Liverpool's managers won at Anfield more than they have away? 
+
+# Spoilers 
+
+Every Liverpool manager in this analysis had higher odds of winning at Anfield than odds of winning away. This is slightly different from saying that the *probability* of winning at home was higher than the probability of winning away. There's a great explanation of the difference between odds ratios and probability ratios [here](http://thestatsgeek.com/2015/01/03/interpreting-odds-and-odds-ratios/). At either rate, what I found interesting was the differing degrees to which odds of winning at home were different from the odds of winning away. These differences look a little more pronounced when we look at managers who were in charge for less games. But even when we examine groups of managers who were in charge for longer, there are still home win odds over 4 times bigger than away win odds. Now that you know what to expect, let's press on with the analysis!
+
+# Setting Up the Analysis 
+
+For this analysis we'll be using the github version of [James Curley's](https://twitter.com/jalapic?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor) [engsoccerdata R package](https://github.com/jalapic/engsoccerdata), which contains English league results from the 1888/1889 to 2016/2017 seasons plus the results to date from the 2017/2018 season.  
+
+```{r load packages, warning=FALSE, message=FALSE}
+#install_github("jalapic/engsoccerdata")
+library(engsoccerdata)
+library(tidyverse)
+library(lubridate)
+library(stringr)
+library(rvest) 
+library(knitr)
+```
+
+The `england` dataset doesn't have a column for managers, so we'll add that by using historical manager data from Wikipedia. The managers and the years they managed Liverpool FC are scraped from the [Wikipedia page for LFC managers](https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers).
+
+```{r scrape manager data}
+site <- read_html(
+  "https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers"
+  )
+
+mtable <- site %>%
+  html_nodes("table") %>%
+  .[[3]] %>%
+  html_table(fill = T) %>%
+  as_tibble()
+```
+
+The resulting dataset of managers needs a little cleaning. We'll remove the duplicate row of column names, extract the manager's last name in the `Name` field, and correct the `Name` field during the year that Evans and Houllier managed together.
+
+```{r}
+# Clean up fields
+mngrs_clean <- mtable %>%
+  # The first row are field names
+  filter(row_number() != 1) %>% 
+  # Clean up the manager names
+  mutate(Name = str_replace(Name, "\\,.*", ""), 
+         # Fix the name for the Evans and Houllier era
+         Name = ifelse(Name == "Evans" & Nationality != "England", 
+                       "Evans & Houllier", 
+                       Name)) %>% 
+  # Remove zeros and strange characters
+  mutate_at(c("From", "To"), funs(str_sub(., 9, 18))) %>% 
+  select(From, To, Name)
+
+# Convert classes
+mngrs_clean <- mngrs_clean %>%
+  mutate_at(vars(From:To), funs(ymd)) %>% 
+  # Use today's date in the latest manager's "To" field 
+  mutate(To = if_else(row_number() == nrow(mngrs_clean), Sys.Date(), To))
+```
+
+To make the dataset of Liverpool manager results, we'll add the current season's games to date to the `england` dataset and filter for just the Liverpool matches. 
+
+```{r create lfc tibble, warning=FALSE, message=FALSE}
+# Current season
+england_17 <- england_current(Season = 2017) 
+
+# Add current season to england dataset
+england <- rbind(england, england_17) 
+
+# Subset Liverpool home and away games
+lfc <- as.tibble(england) %>%
+  mutate(Date = ymd(Date)) %>% 
+  mutate_at(vars(home:FT, result), funs(as.character)) %>%
+  mutate_at(vars(hgoal:goaldif), funs(as.numeric)) %>%
+  filter(home == "Liverpool" | visitor == "Liverpool") %>% 
+  # Create a column for Anfield games
+  mutate(at_anf = "", 
+         at_anf = ifelse(home == "Liverpool", "Anfield", "Away")) %>%
+  # Create a new column for managers 
+  mutate(mngr = "") %>% 
+  select(Date, home, visitor, FT, result, at_anf, mngr) %>% 
+  arrange(Date)
+```
+
+And finally, this loop adds a manager to each Liverpool game based on the date of the game. *Side note: If anyone can help me convert this loop to a function, feel free to do a pull request at my GitHub page. I only have a few hairs left to pull out from when I last tried to do it.*  
+
+```{r}
+for (i in 1:nrow(mngrs_clean)) {
+ lfc <- lfc %>% 
+  mutate(mngr = ifelse(Date >= mngrs_clean$From[i] & Date <= mngrs_clean$To[i], 
+    mngrs_clean$Name[i], 
+    mngr))
+}
+```
+
+The result is a dataset of the last 4498 Liverpool league matches, including the manager for that match: 
+
+```{r}
+kable(head(lfc))
+```
+
+## Comparing Win Ratios
+
+Now that we have all the data we need to look at each manager's ratio of home win odds to away win odds, we can calculate those odds ratios. 
+
+```{r}
+win_ratios <- lfc %>% 
+  # Add a column for wins
+  mutate(win = 0,
+         win = ifelse(home == "Liverpool" & result == "H", 1, win), 
+         win = ifelse(visitor == "Liverpool" & result == "A", 1, win)) %>% 
+  select(mngr, at_anf, win) %>% 
+  group_by(mngr) %>% 
+  # Add columns for home and away win totals and total games
+  summarise(total_hwins = sum(at_anf == "Anfield" & win == 1), 
+            total_hgames = sum(at_anf == "Anfield"), 
+            total_awins = sum(at_anf != "Anfield" & win == 1), 
+            total_agames = sum(at_anf != "Anfield"), 
+            total_games = total_hgames + total_agames) %>% 
+  ungroup() %>% 
+  # Calculate the the odds ratios
+  mutate(h_odds = (total_hwins / total_hgames) / (1 - total_hwins / total_hgames), 
+         a_odds = (total_awins / total_agames) / (1 - total_awins / total_agames), 
+         odds_ratio = round(h_odds / a_odds, 2)) %>% 
+  select(mngr, total_games, odds_ratio) %>%
+  filter(total_games >= 30) 
+
+kable(win_ratios, caption = "Home Win Odds to Away Win Odds", align = "c")
+```
+
+The result is a dataset with an `odds_ratio` column that compares each manager's odds of a home win to their odds of an away win. For example, an odds ratio of 2 means that a manager's odds of winning at home are double the odds of winning away. It's worth noting that this is not the same as saying a manager won more in general. It's more about investigating any differences between how often they won at home and how often they won away.  
+
+# Visualizing the Results  
+
+![](https://media.giphy.com/media/3o6Ztha3zQ6rAQiQ5a/giphy.gif)
+
+If we visualize the odds ratios for the managers who were at the helm for thirty games or more, we'll see that Klopp had the lowest difference between home win odds and away win odds. 
+
+```{r}
+ggplot(data = win_ratios, aes(x = reorder(mngr, odds_ratio), 
+                              y = odds_ratio)) + 
+  geom_point(aes(size = total_games), 
+             alpha = .9, 
+             color = "red2") + 
+  geom_segment(aes(x = mngr, xend = mngr, y = 1, yend = odds_ratio), 
+               size = 1, 
+               alpha = .75, 
+               color = "red2") +
+  coord_flip() + 
+  scale_y_continuous(breaks = seq(1, 9, by = 2), 
+                     limits = c(0, 8), 
+                     labels = c("same", "3x more", "5x", "7x", "9x")) +
+  labs(title = "Klopp Has the Lowest Home to Away Wins Ratio \n(But Time Will Tell)", 
+       subtitle = "Top Flight League Games 1893 - 2017", 
+       x = "", y = "Home Win Odds to Away Win Odds", size = "Total Games")
+``` 
+
+The number of games managed probably makes a difference here, as you'd expect a wider range of results from lower sample sizes. Taylor and Souness are managers that had home win odds approaching eight times their away win odds and each managed less than 200 games: 
+
+```{r}
+# Paramaters for Taylor's point
+taylor <- list(win_ratios$total_games[min_rank(desc(win_ratios$odds_ratio)) == 1], 
+               win_ratios$odds_ratio[min_rank(desc(win_ratios$odds_ratio)) == 1],
+               win_ratios$mngr[min_rank(desc(win_ratios$odds_ratio)) == 1])
+
+# Paramaters for Souness's point
+souness <- list(win_ratios$total_games[min_rank(desc(win_ratios$odds_ratio)) == 2], 
+                win_ratios$odds_ratio[min_rank(desc(win_ratios$odds_ratio)) == 2],
+                win_ratios$mngr[min_rank(desc(win_ratios$odds_ratio)) == 2])
+
+ggplot(data = win_ratios, aes(x = total_games, y = odds_ratio)) + 
+  geom_point(aes(x = taylor[[1]], y = taylor[[2]]), 
+             size = 5, 
+             color = "red2") +
+  geom_point(aes(x = souness[[1]], y = souness[[2]]), 
+             size = 5, 
+             color = "gold2") +
+  geom_point(size = 3, alpha = .50) + 
+  annotate("text", 
+           x = taylor[[1]] + 50, 
+           y = taylor[[2]], 
+           label = taylor[[3]], 
+           color = "red2", 
+           size = 5) + 
+  annotate("text", 
+           x = souness[[1]], 
+           y = souness[[2]] - .5, 
+           label = souness[[3]], 
+           color = "gold2", 
+           size = 5) + 
+  labs(title = "The Highest Home to Away Wins Ratios Happened in \nLess Than 200 Games", 
+       subtitle = "Top Flight League Games 1893 - 2017", 
+       x = "Games Managed", 
+       y = "Home Wins to Away Wins Odds Ratio")
+```
+
+Just eyeballing the plot, it looks like the variation in odds ratio tightens up a bit after about 200 games. After 200 games, the highest ratio goes to the great Bill Shankly at a ratio of 4.71 over 611 games and the lowest ratio goes to Gerard Houllier at 1.89 over 228 games. 
+
+```{r}
+kable(
+ win_ratios %>% 
+  filter(total_games > 200) %>% 
+  arrange (desc(odds_ratio)), 
+ caption = "Odds Ratios (200 or More Games)", 
+ align = "c"
+)
+```
