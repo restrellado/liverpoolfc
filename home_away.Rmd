@@ -51,13 +51,6 @@ View(mngrs_clean)
 ```
 
 ```{r}
-test <- mngrs_clean %>% 
-  mutate(new_name = str_replace(Name, "\\,.*", "")) 
-
-View(test)
-```
-
-```{r}
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf) %>% 
   as.tibble() %>% 
@@ -67,7 +60,7 @@ s2 <- s %>%
   mutate(V2 = str_sub(V2, 1, .5 * nchar(V2)))
 
 newstrings <- cbind(s, s2)
-newstrings_names <- paste(newstrings[, 1], newstrings[,"s2"])
+newstrings_names <- paste(newstrings[, 1], newstrings[, 8])
 
 mngrs_clean$Name <- newstrings_names
 ```
