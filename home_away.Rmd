@@ -45,9 +45,9 @@ mngrs_clean <- mngrs_clean %>%
   mutate_at(c("From", "To"), funs(ymd)) %>% 
   # Use today's date in the latest manager's "To" field 
   mutate(To = if_else(row_number() == nrow(mngrs_clean), Sys.Date(), To), 
-         `Win %` = as.numeric(`Win %`))
+         Win_Perc = as.numeric(Win_Perc))
   
-View(test)
+View(mngrs_clean)
 ```
 
 ```{r}
