@@ -1,55 +1,71 @@
 ---
-title: 'Liverpool FC: Manager Analysis'
+title: "R Notebook"
 output: github_document
 ---
 
 ```{r load packages}
 #install.packages("engsoccerdata")
-library(engsoccerdata, quietly = T)
-library(tidyverse, quietly = T)
-library(lubridate, quietly = T)
-library(stringr, quietly = T)
-library(rvest, quietly = T)
+library(engsoccerdata)
+library(tidyverse)
+library(lubridate)
+library(stringr)
+library(rvest)
 ```
-
-## Purpose 
-
-## Making the Liverpool Managers Dataset 
 
 The managers and the years they managed Liverpool FC are scraped from the [Wikipedia page for LFC managers](https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers).
 
 ```{r scrape manager data}
-site <- 
-  read_html("https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers")
+site <- read_html(
+  "https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers"
+  )
 
 mtable <- site %>%
   html_nodes("table") %>%
   .[[3]] %>%
   html_table(fill = T) %>%
   as_tibble()
+```
 
+```{r}
+# Clean up fields
 mngrs_clean <- mtable %>%
-  select(-Notes) %>%
-  filter(row_number() != 1)
+  select(Name:L, -c(L1:Notes), Win_Perc = `Win %`) %>%
+  # The first row are field names
+  filter(row_number() != 1) %>% 
+  # Remove zeros from dates
+  mutate_at(c("From", "To"), funs(str_sub(., 9, 18))) %>% 
+  mutate_at(vars(P:Win_Perc), funs(str_sub(., 21))) %>% 
+  mutate(Win_Perc = str_sub(Win_Perc, 2))
 
-# Remove zeros
-mngrs_clean$From <- str_sub(mngrs_clean$From, 9, 18)
-mngrs_clean$To <- str_sub(mngrs_clean$To , 9, 18)
-mngrs_clean$P <- str_sub(mngrs_clean$P, 21)
-mngrs_clean$W <- str_sub(mngrs_clean$W, 21)
-mngrs_clean$D <- str_sub(mngrs_clean$D, 21)
-mngrs_clean$L <- str_sub(mngrs_clean$L, 21)
-mngrs_clean$`Win %` <- str_sub(mngrs_clean$`Win %`, 21)
+mngrs_clean
 
-# Convert From and To to dates
+# TODO: convert classes properly 
+# Convert classes
 mngrs_clean <- mngrs_clean %>%
-  mutate(From = as.Date(From)) %>%
-  mutate(To = as.Date(To)) %>% 
-  mutate(To = ifelse(is.na(To), Sys.Date(), To))
+  mutate_at(c("From", "To"), funs(ymd)) %>% 
+  # Use today's date in the latest manager's "To" field 
+  mutate(To = if_else(row_number() == nrow(mngrs_clean), Sys.Date(), To), 
+         `Win %` = as.numeric(`Win %`))
+  
+View(test)
+```
 
+```{r}
+test <- mngrs_clean %>% 
+  mutate(new_name = str_replace(Name, "\\,.*", "")) 
+
+View(test)
+```
+
+```{r}
 # Convert manager names to last, first format
-s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
-s2 <- str_sub(s[, 2], 1, .5 * nchar(s[, 2]))
+s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf) %>% 
+  as.tibble() %>% 
+  mutate()
+
+s2 <- s %>% 
+  mutate(V2 = str_sub(V2, 1, .5 * nchar(V2)))
+
 newstrings <- cbind(s, s2)
 newstrings_names <- paste(newstrings[, 1], newstrings[,"s2"])
 
