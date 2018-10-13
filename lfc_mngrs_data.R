@@ -6,7 +6,7 @@ library(rvest)
 
 #------------------------------------------------------------------------------
 
-# Clean LFC manager dataset 
+# Clean LFC manager dataset from Wikipedia
 
 site <- read_html(
   "https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers"
@@ -49,8 +49,5 @@ mngrs_clean <- mngrs_clean %>%
 
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
-s2 <- str_sub(s[, 2], 1, .5 * nchar(s[, 2]))
-newstrings <- cbind(s, s2)
-newstrings_names <- paste(newstrings[, 1], newstrings[,"s2"])
-
+newstrings_names <- paste0(s[, 2], ", ", s[, 1])
 mngrs_clean$Name <- newstrings_names
