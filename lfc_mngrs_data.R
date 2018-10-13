@@ -20,24 +20,32 @@ mtable <- site %>%
 
 mngrs_clean <- mtable %>%
   select(-Notes) %>%
-  filter(row_number() != 1)
+  filter(row_number() != 1) %>% 
+  rename(win_perc = `Win %`)
 
 # Remove zeros
-# mngrs_clean$From <- str_sub(mngrs_clean$From, 9, 18)
-# mngrs_clean$To <- str_sub(mngrs_clean$To , 9, 18)
 mngrs_clean$P <- str_sub(mngrs_clean$P, 21)
 mngrs_clean$W <- str_sub(mngrs_clean$W, 21)
 mngrs_clean$D <- str_sub(mngrs_clean$D, 21)
 mngrs_clean$L <- str_sub(mngrs_clean$L, 21)
-mngrs_clean$`Win %` <- str_sub(mngrs_clean$`Win %`, 21)
+mngrs_clean$win_perc <- str_sub(mngrs_clean$win_perc, 21)
 
-# Convert From and To to dates
+# Convert formats and clean
 mngrs_clean <- mngrs_clean %>%
   mutate(From = dmy(as.character(From)), 
          To = dmy(as.character(To)), 
          # Fix NAs for Kay and Taylor 
          To = if_else(Name == "George Kay", ymd("1951-03-22"), To), 
-         From = if_else(Name == "Phil Taylor", ymd("1956-05-05"), From))
+         From = if_else(Name == "Phil Taylor", ymd("1956-05-05"), From), 
+         # Fix text
+         Name = if_else(
+           Name == "William Edward BarclayJohn McKenna", "John McKenna", Name
+           ), 
+         Nationality = if_else(
+           Nationality == "Ireland Ireland", "Ireland", "Nationality"
+           ), 
+         # Remove spade symbol
+         win_perc = str_sub(win_perc, 2))
 
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
