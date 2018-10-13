@@ -50,4 +50,7 @@ mngrs_clean <- mngrs_clean %>%
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
 newstrings_names <- paste0(s[, 2], ", ", s[, 1])
-mngrs_clean$Name <- newstrings_names
+mngrs_clean$Name <- newstrings_names 
+
+# Write file to output folder 
+write_csv(mngrs_clean, "output/lfc_managers.csv")
