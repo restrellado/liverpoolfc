@@ -1,8 +1,14 @@
-library(engsoccerdata)
 library(tidyverse)
-library(lubridate)
 library(stringr)
 library(rvest)
+
+#------------------------------------------------------------------------------
+
+# If you need to update engsoccer from GitHub
+# This may break rlang installation
+#library(devtools)
+#install_github('jalapic/engsoccerdata', username = "jalapic")
+library(engsoccerdata)
 
 #------------------------------------------------------------------------------
 
