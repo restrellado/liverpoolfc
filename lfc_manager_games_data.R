@@ -14,6 +14,7 @@ lfc_mngrs <- as.tibble(england) %>%
 
 #------------------------------------------------------------------------------
 
+# TODO fix "c(\"Evans, Roy\", \"EvansGérard, Roy\", \"Houllier, Gérard\")"
 # Add managers to the games dataset 
 
 # Create a vector of managers to add to the games dataset
