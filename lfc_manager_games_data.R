@@ -1,26 +1,30 @@
 library(tidyverse)
 
 # Read in managers dataset
-mngrs_clean <- read_csv("output/lfc_managers.csv")
+mngrs_clean <- read_csv("output/lfc_managers.csv") %>% 
+  # Create time interval
+  mutate(span = interval(From, To))
 
 # Subset Liverpool home and away games
 lfc_mngrs <- as.tibble(england) %>%
   filter(home == "Liverpool" | visitor == "Liverpool") %>% 
   mutate(Date = as.Date(Date)) %>%
   # Create a new column for managers
-  arrange(Date) %>% 
-  mutate(mngr = "")
+  arrange(Date)
 
-# TODO rework this as a function
-# Loop to add the rest of the managers
-for (i in 1:nrow(mngrs_clean)) {
-  lfc_mngrs <- lfc_mngrs %>% 
-    mutate(mngr = ifelse(
-      Date >= mngrs_clean$From[i] & Date <= mngrs_clean$To[i], 
-      mngrs_clean$Name[i], 
-      mngr
-    ))
+#------------------------------------------------------------------------------
+
+# Add managers to the games dataset 
+
+# Create a vector of managers to add to the games dataset
+add_mngrs <- function(game_date) {
+  mngrs_clean$Name[game_date %within% mngrs_clean$span]
 }
+
+# Need to create the manager list separately because a NULL value breaks map_chr
+game_mngrs <- as.character(map(lfc_mngrs$Date, add_mngrs))
+
+lfc_mngrs$mngr <- game_mngrs
 
 #------------------------------------------------------------------------------
 
@@ -39,5 +43,3 @@ lfc_mngrs <- lfc_mngrs %>%
     at_anf = "", 
     at_anf = ifelse(home == "Liverpool", "Anfield", "Away")
   )
-
-#------------------------------------------------------------------------------
