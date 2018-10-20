@@ -65,9 +65,7 @@ mngrs_clean <- mngrs_clean %>%
          # Fix To date for last entry
          To = if_else(row_number() == 23, as.Date(now()), To), 
          # Remove spade symbol
-         win_perc = str_sub(win_perc, 2), 
-         # Create time interval
-         span = interval(From, To))
+         win_perc = str_sub(win_perc, 2))
 
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
