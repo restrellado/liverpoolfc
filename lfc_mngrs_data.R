@@ -1,6 +1,7 @@
 library(tidyverse)
 library(stringr)
 library(rvest)
+library(lubridate)
 
 #------------------------------------------------------------------------------
 
@@ -12,17 +13,23 @@ library(engsoccerdata)
 
 #------------------------------------------------------------------------------
 
-# Clean LFC manager dataset from Wikipedia
+# # Clean LFC manager dataset from Wikipedia 
+# # Store a copy of this on data.world
+# # Run again if we need to update the manager dataset 
+# 
+# site <- read_html(
+#   "https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers"
+#   )
+# 
+# mtable <- site %>%
+#   html_nodes("table") %>%
+#   .[[3]] %>%
+#   html_table(fill = T) %>%
+#   as_tibble()
+# 
+# write_csv(mtable, "output/wiki_lfc_mngrs.csv")
 
-site <- read_html(
-  "https://en.wikipedia.org/wiki/List_of_Liverpool_F.C._managers"
-  )
-
-mtable <- site %>%
-  html_nodes("table") %>%
-  .[[3]] %>%
-  html_table(fill = T) %>%
-  as_tibble()
+#------------------------------------------------------------------------------
 
 mngrs_clean <- mtable %>%
   select(-Notes) %>%
@@ -50,8 +57,12 @@ mngrs_clean <- mngrs_clean %>%
          Nationality = if_else(
            Nationality == "Ireland Ireland", "Ireland", "Nationality"
            ), 
+         # Fix To date for last entry
+         To = if_else(row_number() == 23, as.Date(now()), To), 
          # Remove spade symbol
-         win_perc = str_sub(win_perc, 2))
+         win_perc = str_sub(win_perc, 2), 
+         # Create time interval
+         span = interval(From, To))
 
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
