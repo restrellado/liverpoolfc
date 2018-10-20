@@ -31,6 +31,11 @@ library(engsoccerdata)
 
 #------------------------------------------------------------------------------
 
+# Download Wikipedia manager data from data.world
+mtable <- read_csv("https://query.data.world/s/vus2v4wpv3s4hkmbnzhym4ra6tnoht")
+
+#------------------------------------------------------------------------------
+
 mngrs_clean <- mtable %>%
   select(-Notes) %>%
   filter(row_number() != 1) %>% 
