@@ -60,7 +60,7 @@ mngrs_clean <- mngrs_clean %>%
            Name == "William Edward BarclayJohn McKenna", "John McKenna", Name
            ), 
          Nationality = if_else(
-           Nationality == "Ireland Ireland", "Ireland", "Nationality"
+           Nationality == "Ireland Ireland", "Ireland", Nationality
            ), 
          # Fix To date for last entry
          To = if_else(row_number() == 23, as.Date(now()), To), 
