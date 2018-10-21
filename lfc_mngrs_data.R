@@ -50,11 +50,15 @@ mngrs_clean$win_perc <- str_sub(mngrs_clean$win_perc, 21)
 
 # Convert formats and clean
 mngrs_clean <- mngrs_clean %>%
+  # Remove Houllier and Evans era to keep it simple
+  filter(Name != "Roy EvansGérard Houllier") %>% 
   mutate(From = dmy(as.character(From)), 
          To = dmy(as.character(To)), 
          # Fix NAs for Kay and Taylor 
          To = if_else(Name == "George Kay", ymd("1951-03-22"), To), 
          From = if_else(Name == "Phil Taylor", ymd("1956-05-05"), From), 
+         # Clean dates Evans and Houllier dates
+         From = if_else(Name == "Gérard Houllier", ymd("1998-11-13"), From), 
          # Fix text
          Name = if_else(
            Name == "William Edward BarclayJohn McKenna", "John McKenna", Name
