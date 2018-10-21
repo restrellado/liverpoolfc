@@ -1,92 +1,92 @@
 Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mngr,lfc_goals,at_anf
-1893-09-02,1893,Middlesbrough Ironopolis,Liverpool,0-2,0,2,2,2,2,-2,A,"Barclay, Wil",2,Away
-1893-09-09,1893,Liverpool,Lincoln City,4-0,4,0,2,2,4,4,H,"Barclay, Wil",4,Anfield
-1893-09-16,1893,Manchester City,Liverpool,0-1,0,1,2,2,1,-1,A,"Barclay, Wil",1,Away
-1893-09-23,1893,Liverpool,Birmingham City,3-1,3,1,2,2,4,2,H,"Barclay, Wil",3,Anfield
-1893-09-30,1893,Notts County,Liverpool,1-1,1,1,2,2,2,0,D,"Barclay, Wil",1,Away
-1893-10-07,1893,Liverpool,Middlesbrough Ironopolis,6-0,6,0,2,2,6,6,H,"Barclay, Wil",6,Anfield
-1893-10-14,1893,Birmingham City,Liverpool,3-4,3,4,2,2,7,-1,A,"Barclay, Wil",4,Away
-1893-10-21,1893,Burton Swifts,Liverpool,1-1,1,1,2,2,2,0,D,"Barclay, Wil",1,Away
-1893-10-28,1893,Arsenal,Liverpool,0-5,0,5,2,2,5,-5,A,"Barclay, Wil",5,Away
-1893-11-04,1893,Liverpool,Newcastle United,5-1,5,1,2,2,6,4,H,"Barclay, Wil",5,Anfield
-1893-11-11,1893,Walsall,Liverpool,1-1,1,1,2,2,2,0,D,"Barclay, Wil",1,Away
-1893-11-18,1893,Liverpool,Notts County,2-1,2,1,2,2,3,1,H,"Barclay, Wil",2,Anfield
-1893-11-25,1893,Newcastle United,Liverpool,0-0,0,0,2,2,0,0,D,"Barclay, Wil",0,Away
-1893-12-02,1893,Liverpool,Manchester City,3-0,3,0,2,2,3,3,H,"Barclay, Wil",3,Anfield
-1893-12-09,1893,Liverpool,Walsall,3-0,3,0,2,2,3,3,H,"Barclay, Wil",3,Anfield
-1893-12-28,1893,Crewe Alexandra,Liverpool,0-5,0,5,2,2,5,-5,A,"Barclay, Wil",5,Away
-1893-12-30,1893,Liverpool,Grimsby Town,2-0,2,0,2,2,2,2,H,"Barclay, Wil",2,Anfield
-1894-01-01,1893,Liverpool,Arsenal,2-0,2,0,2,2,2,2,H,"Barclay, Wil",2,Anfield
-1894-01-06,1893,Rotherham Town,Liverpool,1-4,1,4,2,2,5,-3,A,"Barclay, Wil",4,Away
-1894-01-13,1893,Liverpool,Rotherham Town,5-1,5,1,2,2,6,4,H,"Barclay, Wil",5,Anfield
-1894-02-03,1893,Liverpool,Northwich Victoria,4-0,4,0,2,2,4,4,H,"Barclay, Wil",4,Anfield
-1894-03-03,1893,Liverpool,Burton Swifts,3-1,3,1,2,2,4,2,H,"Barclay, Wil",3,Anfield
-1894-03-17,1893,Lincoln City,Liverpool,1-1,1,1,2,2,2,0,D,"Barclay, Wil",1,Away
-1894-03-24,1893,Liverpool,Crewe Alexandra,2-0,2,0,2,2,2,2,H,"Barclay, Wil",2,Anfield
-1894-03-28,1893,Northwich Victoria,Liverpool,2-3,2,3,2,2,5,-1,A,"Barclay, Wil",3,Away
-1894-03-31,1893,Grimsby Town,Liverpool,0-1,0,1,2,2,1,-1,A,"Barclay, Wil",1,Away
-1894-04-07,1893,Port Vale,Liverpool,2-2,2,2,2,2,4,0,D,"Barclay, Wil",2,Away
-1894-04-14,1893,Liverpool,Port Vale,2-1,2,1,2,2,3,1,H,"Barclay, Wil",2,Anfield
-1894-09-01,1894,Blackburn Rovers,Liverpool,1-1,1,1,1,1,2,0,D,"Barclay, Wil",1,Away
-1894-09-03,1894,Burnley,Liverpool,3-3,3,3,1,1,6,0,D,"Barclay, Wil",3,Away
-1894-09-08,1894,Liverpool,Aston Villa,1-2,1,2,1,1,3,-1,A,"Barclay, Wil",1,Anfield
-1894-09-13,1894,Liverpool,Bolton Wanderers,1-2,1,2,1,1,3,-1,A,"Barclay, Wil",1,Anfield
-1894-09-15,1894,West Bromwich Albion,Liverpool,5-0,5,0,1,1,5,5,H,"Barclay, Wil",0,Away
-1894-09-22,1894,Liverpool,Blackburn Rovers,2-2,2,2,1,1,4,0,D,"Barclay, Wil",2,Anfield
-1894-09-29,1894,Wolverhampton Wanderers,Liverpool,3-1,3,1,1,1,4,2,H,"Barclay, Wil",1,Away
-1894-10-06,1894,Liverpool,Sheffield United,2-2,2,2,1,1,4,0,D,"Barclay, Wil",2,Anfield
-1894-10-13,1894,Everton,Liverpool,3-0,3,0,1,1,3,3,H,"Barclay, Wil",0,Away
-1894-10-20,1894,Liverpool,Stoke City,2-0,2,0,1,1,2,2,H,"Barclay, Wil",2,Anfield
-1894-10-27,1894,Aston Villa,Liverpool,5-0,5,0,1,1,5,5,H,"Barclay, Wil",0,Away
-1894-11-03,1894,Liverpool,Burnley,0-3,0,3,1,1,3,-3,A,"Barclay, Wil",0,Anfield
-1894-11-10,1894,Stoke City,Liverpool,3-1,3,1,1,1,4,2,H,"Barclay, Wil",1,Away
-1894-11-17,1894,Liverpool,Everton,2-2,2,2,1,1,4,0,D,"Barclay, Wil",2,Anfield
-1894-11-24,1894,Sunderland,Liverpool,3-2,3,2,1,1,5,1,H,"Barclay, Wil",2,Away
-1894-12-01,1894,Liverpool,Wolverhampton Wanderers,3-3,3,3,1,1,6,0,D,"Barclay, Wil",3,Anfield
-1894-12-08,1894,Sheffield United,Liverpool,2-2,2,2,1,1,4,0,D,"Barclay, Wil",2,Away
-1894-12-15,1894,Liverpool,Birmingham City,3-1,3,1,1,1,4,2,H,"Barclay, Wil",3,Anfield
-1894-12-25,1894,Bolton Wanderers,Liverpool,1-0,1,0,1,1,1,1,H,"Barclay, Wil",0,Away
-1894-12-29,1894,Birmingham City,Liverpool,3-0,3,0,1,1,3,3,H,"Barclay, Wil",0,Away
-1895-01-01,1894,Liverpool,West Bromwich Albion,4-0,4,0,1,1,4,4,H,"Barclay, Wil",4,Anfield
-1895-01-05,1894,Sheffield Wednesday,Liverpool,5-0,5,0,1,1,5,5,H,"Barclay, Wil",0,Away
-1895-01-09,1894,Derby County,Liverpool,0-1,0,1,1,1,1,-1,A,"Barclay, Wil",1,Away
-1895-01-12,1894,Liverpool,Nottingham Forest,5-0,5,0,1,1,5,5,H,"Barclay, Wil",5,Anfield
-1895-03-02,1894,Liverpool,Derby County,5-1,5,1,1,1,6,4,H,"Barclay, Wil",5,Anfield
-1895-03-25,1894,Liverpool,Sunderland,2-3,2,3,1,1,5,-1,A,"Barclay, Wil",2,Anfield
-1895-03-30,1894,Liverpool,Sheffield Wednesday,4-2,4,2,1,1,6,2,H,"Barclay, Wil",4,Anfield
-1895-04-06,1894,Nottingham Forest,Liverpool,3-0,3,0,1,1,3,3,H,"Barclay, Wil",0,Away
-1895-04-12,1894,Preston North End,Liverpool,2-2,2,2,1,1,4,0,D,"Barclay, Wil",2,Away
-1895-04-20,1894,Liverpool,Preston North End,2-5,2,5,1,1,7,-3,A,"Barclay, Wil",2,Anfield
-1895-09-07,1895,Notts County,Liverpool,2-3,2,3,2,2,5,-1,A,"Barclay, Wil",3,Away
-1895-09-14,1895,Liverpool,Newcastle United,5-1,5,1,2,2,6,4,H,"Barclay, Wil",5,Anfield
-1895-09-21,1895,Loughborough,Liverpool,2-4,2,4,2,2,6,-2,A,"Barclay, Wil",4,Away
-1895-09-28,1895,Liverpool,Port Vale,5-1,5,1,2,2,6,4,H,"Barclay, Wil",5,Anfield
-1895-09-30,1895,Liverpool,Burton Wanderers,4-1,4,1,2,2,5,3,H,"Barclay, Wil",4,Anfield
-1895-10-05,1895,Newcastle United,Liverpool,1-0,1,0,2,2,1,1,H,"Barclay, Wil",0,Away
-1895-10-07,1895,Liverpool,Crewe Alexandra,6-1,6,1,2,2,7,5,H,"Barclay, Wil",6,Anfield
-1895-10-12,1895,Liverpool,Manchester United,7-1,7,1,2,2,8,6,H,"Barclay, Wil",7,Anfield
-1895-10-19,1895,Grimsby Town,Liverpool,1-0,1,0,2,2,1,1,H,"Barclay, Wil",0,Away
-1895-10-21,1895,Port Vale,Liverpool,5-4,5,4,2,2,9,1,H,"Barclay, Wil",4,Away
-1895-10-26,1895,Liverpool,Notts County,3-0,3,0,2,2,3,3,H,"Barclay, Wil",3,Anfield
-1895-11-02,1895,Manchester United,Liverpool,5-2,5,2,2,2,7,3,H,"Barclay, Wil",2,Away
-1895-11-09,1895,Liverpool,Leicester City,3-1,3,1,2,2,4,2,H,"Barclay, Wil",3,Anfield
-1895-11-16,1895,Arsenal,Liverpool,0-2,0,2,2,2,2,-2,A,"Barclay, Wil",2,Away
-1895-11-23,1895,Liverpool,Darwen,0-0,0,0,2,2,0,0,D,"Barclay, Wil",0,Anfield
-1895-11-30,1895,Leicester City,Liverpool,2-0,2,0,2,2,2,2,H,"Barclay, Wil",0,Away
-1895-12-07,1895,Liverpool,Loughborough,1-0,1,0,2,2,1,1,H,"Barclay, Wil",1,Anfield
-1895-12-14,1895,Darwen,Liverpool,0-4,0,4,2,2,4,-4,A,"Barclay, Wil",4,Away
-1895-12-21,1895,Lincoln City,Liverpool,0-1,0,1,2,2,1,-1,A,"Barclay, Wil",1,Away
-1896-01-01,1895,Liverpool,Manchester City,3-1,3,1,2,2,4,2,H,"Barclay, Wil",3,Anfield
-1896-01-04,1895,Rotherham Town,Liverpool,0-5,0,5,2,2,5,-5,A,"Barclay, Wil",5,Away
-1896-01-11,1895,Liverpool,Arsenal,3-0,3,0,2,2,3,3,H,"Barclay, Wil",3,Anfield
-1896-01-25,1895,Liverpool,Lincoln City,6-1,6,1,2,2,7,5,H,"Barclay, Wil",6,Anfield
-1896-02-18,1895,Liverpool,Rotherham Town,10-1,10,1,2,2,11,9,H,"Barclay, Wil",10,Anfield
-1896-02-22,1895,Liverpool,Grimsby Town,3-1,3,1,2,2,4,2,H,"Barclay, Wil",3,Anfield
-1896-02-29,1895,Burton Swifts,Liverpool,0-7,0,7,2,2,7,-7,A,"Barclay, Wil",7,Away
-1896-03-07,1895,Burton Wanderers,Liverpool,2-1,2,1,2,2,3,1,H,"Barclay, Wil",1,Away
-1896-03-21,1895,Liverpool,Burton Swifts,6-1,6,1,2,2,7,5,H,"Barclay, Wil",6,Anfield
-1896-03-28,1895,Crewe Alexandra,Liverpool,0-7,0,7,2,2,7,-7,A,"Barclay, Wil",7,Away
-1896-04-03,1895,Manchester City,Liverpool,1-1,1,1,2,2,2,0,D,"Barclay, Wil",1,Away
+1893-09-02,1893,Middlesbrough Ironopolis,Liverpool,0-2,0,2,2,2,2,-2,A,"McKenna, John",2,Away
+1893-09-09,1893,Liverpool,Lincoln City,4-0,4,0,2,2,4,4,H,"McKenna, John",4,Anfield
+1893-09-16,1893,Manchester City,Liverpool,0-1,0,1,2,2,1,-1,A,"McKenna, John",1,Away
+1893-09-23,1893,Liverpool,Birmingham City,3-1,3,1,2,2,4,2,H,"McKenna, John",3,Anfield
+1893-09-30,1893,Notts County,Liverpool,1-1,1,1,2,2,2,0,D,"McKenna, John",1,Away
+1893-10-07,1893,Liverpool,Middlesbrough Ironopolis,6-0,6,0,2,2,6,6,H,"McKenna, John",6,Anfield
+1893-10-14,1893,Birmingham City,Liverpool,3-4,3,4,2,2,7,-1,A,"McKenna, John",4,Away
+1893-10-21,1893,Burton Swifts,Liverpool,1-1,1,1,2,2,2,0,D,"McKenna, John",1,Away
+1893-10-28,1893,Arsenal,Liverpool,0-5,0,5,2,2,5,-5,A,"McKenna, John",5,Away
+1893-11-04,1893,Liverpool,Newcastle United,5-1,5,1,2,2,6,4,H,"McKenna, John",5,Anfield
+1893-11-11,1893,Walsall,Liverpool,1-1,1,1,2,2,2,0,D,"McKenna, John",1,Away
+1893-11-18,1893,Liverpool,Notts County,2-1,2,1,2,2,3,1,H,"McKenna, John",2,Anfield
+1893-11-25,1893,Newcastle United,Liverpool,0-0,0,0,2,2,0,0,D,"McKenna, John",0,Away
+1893-12-02,1893,Liverpool,Manchester City,3-0,3,0,2,2,3,3,H,"McKenna, John",3,Anfield
+1893-12-09,1893,Liverpool,Walsall,3-0,3,0,2,2,3,3,H,"McKenna, John",3,Anfield
+1893-12-28,1893,Crewe Alexandra,Liverpool,0-5,0,5,2,2,5,-5,A,"McKenna, John",5,Away
+1893-12-30,1893,Liverpool,Grimsby Town,2-0,2,0,2,2,2,2,H,"McKenna, John",2,Anfield
+1894-01-01,1893,Liverpool,Arsenal,2-0,2,0,2,2,2,2,H,"McKenna, John",2,Anfield
+1894-01-06,1893,Rotherham Town,Liverpool,1-4,1,4,2,2,5,-3,A,"McKenna, John",4,Away
+1894-01-13,1893,Liverpool,Rotherham Town,5-1,5,1,2,2,6,4,H,"McKenna, John",5,Anfield
+1894-02-03,1893,Liverpool,Northwich Victoria,4-0,4,0,2,2,4,4,H,"McKenna, John",4,Anfield
+1894-03-03,1893,Liverpool,Burton Swifts,3-1,3,1,2,2,4,2,H,"McKenna, John",3,Anfield
+1894-03-17,1893,Lincoln City,Liverpool,1-1,1,1,2,2,2,0,D,"McKenna, John",1,Away
+1894-03-24,1893,Liverpool,Crewe Alexandra,2-0,2,0,2,2,2,2,H,"McKenna, John",2,Anfield
+1894-03-28,1893,Northwich Victoria,Liverpool,2-3,2,3,2,2,5,-1,A,"McKenna, John",3,Away
+1894-03-31,1893,Grimsby Town,Liverpool,0-1,0,1,2,2,1,-1,A,"McKenna, John",1,Away
+1894-04-07,1893,Port Vale,Liverpool,2-2,2,2,2,2,4,0,D,"McKenna, John",2,Away
+1894-04-14,1893,Liverpool,Port Vale,2-1,2,1,2,2,3,1,H,"McKenna, John",2,Anfield
+1894-09-01,1894,Blackburn Rovers,Liverpool,1-1,1,1,1,1,2,0,D,"McKenna, John",1,Away
+1894-09-03,1894,Burnley,Liverpool,3-3,3,3,1,1,6,0,D,"McKenna, John",3,Away
+1894-09-08,1894,Liverpool,Aston Villa,1-2,1,2,1,1,3,-1,A,"McKenna, John",1,Anfield
+1894-09-13,1894,Liverpool,Bolton Wanderers,1-2,1,2,1,1,3,-1,A,"McKenna, John",1,Anfield
+1894-09-15,1894,West Bromwich Albion,Liverpool,5-0,5,0,1,1,5,5,H,"McKenna, John",0,Away
+1894-09-22,1894,Liverpool,Blackburn Rovers,2-2,2,2,1,1,4,0,D,"McKenna, John",2,Anfield
+1894-09-29,1894,Wolverhampton Wanderers,Liverpool,3-1,3,1,1,1,4,2,H,"McKenna, John",1,Away
+1894-10-06,1894,Liverpool,Sheffield United,2-2,2,2,1,1,4,0,D,"McKenna, John",2,Anfield
+1894-10-13,1894,Everton,Liverpool,3-0,3,0,1,1,3,3,H,"McKenna, John",0,Away
+1894-10-20,1894,Liverpool,Stoke City,2-0,2,0,1,1,2,2,H,"McKenna, John",2,Anfield
+1894-10-27,1894,Aston Villa,Liverpool,5-0,5,0,1,1,5,5,H,"McKenna, John",0,Away
+1894-11-03,1894,Liverpool,Burnley,0-3,0,3,1,1,3,-3,A,"McKenna, John",0,Anfield
+1894-11-10,1894,Stoke City,Liverpool,3-1,3,1,1,1,4,2,H,"McKenna, John",1,Away
+1894-11-17,1894,Liverpool,Everton,2-2,2,2,1,1,4,0,D,"McKenna, John",2,Anfield
+1894-11-24,1894,Sunderland,Liverpool,3-2,3,2,1,1,5,1,H,"McKenna, John",2,Away
+1894-12-01,1894,Liverpool,Wolverhampton Wanderers,3-3,3,3,1,1,6,0,D,"McKenna, John",3,Anfield
+1894-12-08,1894,Sheffield United,Liverpool,2-2,2,2,1,1,4,0,D,"McKenna, John",2,Away
+1894-12-15,1894,Liverpool,Birmingham City,3-1,3,1,1,1,4,2,H,"McKenna, John",3,Anfield
+1894-12-25,1894,Bolton Wanderers,Liverpool,1-0,1,0,1,1,1,1,H,"McKenna, John",0,Away
+1894-12-29,1894,Birmingham City,Liverpool,3-0,3,0,1,1,3,3,H,"McKenna, John",0,Away
+1895-01-01,1894,Liverpool,West Bromwich Albion,4-0,4,0,1,1,4,4,H,"McKenna, John",4,Anfield
+1895-01-05,1894,Sheffield Wednesday,Liverpool,5-0,5,0,1,1,5,5,H,"McKenna, John",0,Away
+1895-01-09,1894,Derby County,Liverpool,0-1,0,1,1,1,1,-1,A,"McKenna, John",1,Away
+1895-01-12,1894,Liverpool,Nottingham Forest,5-0,5,0,1,1,5,5,H,"McKenna, John",5,Anfield
+1895-03-02,1894,Liverpool,Derby County,5-1,5,1,1,1,6,4,H,"McKenna, John",5,Anfield
+1895-03-25,1894,Liverpool,Sunderland,2-3,2,3,1,1,5,-1,A,"McKenna, John",2,Anfield
+1895-03-30,1894,Liverpool,Sheffield Wednesday,4-2,4,2,1,1,6,2,H,"McKenna, John",4,Anfield
+1895-04-06,1894,Nottingham Forest,Liverpool,3-0,3,0,1,1,3,3,H,"McKenna, John",0,Away
+1895-04-12,1894,Preston North End,Liverpool,2-2,2,2,1,1,4,0,D,"McKenna, John",2,Away
+1895-04-20,1894,Liverpool,Preston North End,2-5,2,5,1,1,7,-3,A,"McKenna, John",2,Anfield
+1895-09-07,1895,Notts County,Liverpool,2-3,2,3,2,2,5,-1,A,"McKenna, John",3,Away
+1895-09-14,1895,Liverpool,Newcastle United,5-1,5,1,2,2,6,4,H,"McKenna, John",5,Anfield
+1895-09-21,1895,Loughborough,Liverpool,2-4,2,4,2,2,6,-2,A,"McKenna, John",4,Away
+1895-09-28,1895,Liverpool,Port Vale,5-1,5,1,2,2,6,4,H,"McKenna, John",5,Anfield
+1895-09-30,1895,Liverpool,Burton Wanderers,4-1,4,1,2,2,5,3,H,"McKenna, John",4,Anfield
+1895-10-05,1895,Newcastle United,Liverpool,1-0,1,0,2,2,1,1,H,"McKenna, John",0,Away
+1895-10-07,1895,Liverpool,Crewe Alexandra,6-1,6,1,2,2,7,5,H,"McKenna, John",6,Anfield
+1895-10-12,1895,Liverpool,Manchester United,7-1,7,1,2,2,8,6,H,"McKenna, John",7,Anfield
+1895-10-19,1895,Grimsby Town,Liverpool,1-0,1,0,2,2,1,1,H,"McKenna, John",0,Away
+1895-10-21,1895,Port Vale,Liverpool,5-4,5,4,2,2,9,1,H,"McKenna, John",4,Away
+1895-10-26,1895,Liverpool,Notts County,3-0,3,0,2,2,3,3,H,"McKenna, John",3,Anfield
+1895-11-02,1895,Manchester United,Liverpool,5-2,5,2,2,2,7,3,H,"McKenna, John",2,Away
+1895-11-09,1895,Liverpool,Leicester City,3-1,3,1,2,2,4,2,H,"McKenna, John",3,Anfield
+1895-11-16,1895,Arsenal,Liverpool,0-2,0,2,2,2,2,-2,A,"McKenna, John",2,Away
+1895-11-23,1895,Liverpool,Darwen,0-0,0,0,2,2,0,0,D,"McKenna, John",0,Anfield
+1895-11-30,1895,Leicester City,Liverpool,2-0,2,0,2,2,2,2,H,"McKenna, John",0,Away
+1895-12-07,1895,Liverpool,Loughborough,1-0,1,0,2,2,1,1,H,"McKenna, John",1,Anfield
+1895-12-14,1895,Darwen,Liverpool,0-4,0,4,2,2,4,-4,A,"McKenna, John",4,Away
+1895-12-21,1895,Lincoln City,Liverpool,0-1,0,1,2,2,1,-1,A,"McKenna, John",1,Away
+1896-01-01,1895,Liverpool,Manchester City,3-1,3,1,2,2,4,2,H,"McKenna, John",3,Anfield
+1896-01-04,1895,Rotherham Town,Liverpool,0-5,0,5,2,2,5,-5,A,"McKenna, John",5,Away
+1896-01-11,1895,Liverpool,Arsenal,3-0,3,0,2,2,3,3,H,"McKenna, John",3,Anfield
+1896-01-25,1895,Liverpool,Lincoln City,6-1,6,1,2,2,7,5,H,"McKenna, John",6,Anfield
+1896-02-18,1895,Liverpool,Rotherham Town,10-1,10,1,2,2,11,9,H,"McKenna, John",10,Anfield
+1896-02-22,1895,Liverpool,Grimsby Town,3-1,3,1,2,2,4,2,H,"McKenna, John",3,Anfield
+1896-02-29,1895,Burton Swifts,Liverpool,0-7,0,7,2,2,7,-7,A,"McKenna, John",7,Away
+1896-03-07,1895,Burton Wanderers,Liverpool,2-1,2,1,2,2,3,1,H,"McKenna, John",1,Away
+1896-03-21,1895,Liverpool,Burton Swifts,6-1,6,1,2,2,7,5,H,"McKenna, John",6,Anfield
+1896-03-28,1895,Crewe Alexandra,Liverpool,0-7,0,7,2,2,7,-7,A,"McKenna, John",7,Away
+1896-04-03,1895,Manchester City,Liverpool,1-1,1,1,2,2,2,0,D,"McKenna, John",1,Away
 1896-09-01,1896,Sheffield Wednesday,Liverpool,1-2,1,2,1,1,3,-1,A,"Watson, Tom",2,Away
 1896-09-05,1896,Blackburn Rovers,Liverpool,1-0,1,0,1,1,1,1,H,"Watson, Tom",0,Away
 1896-09-07,1896,Liverpool,Bolton Wanderers,0-2,0,2,1,1,2,-2,A,"Watson, Tom",0,Anfield
@@ -1129,8 +1129,8 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1928-02-04,1927,Liverpool,West Ham United,1-3,1,3,1,1,4,-2,A,"McQueen, Matt",1,Anfield
 1928-02-11,1927,Portsmouth,Liverpool,1-0,1,0,1,1,1,1,H,"McQueen, Matt",0,Away
 1928-02-15,1927,Derby County,Liverpool,2-3,2,3,1,1,5,-1,A,"McQueen, Matt",3,Away
-1928-02-25,1927,Liverpool,Everton,3-3,3,3,1,1,6,0,D,,3,Anfield
-1928-03-03,1927,Liverpool,Bolton Wanderers,4-2,4,2,1,1,6,2,H,,4,Anfield
+1928-02-25,1927,Liverpool,Everton,3-3,3,3,1,1,6,0,D,character(0),3,Anfield
+1928-03-03,1927,Liverpool,Bolton Wanderers,4-2,4,2,1,1,6,2,H,character(0),4,Anfield
 1928-03-07,1927,Arsenal,Liverpool,6-3,6,3,1,1,9,3,H,"Patterson, George",3,Away
 1928-03-10,1927,Blackburn Rovers,Liverpool,2-1,2,1,1,1,3,1,H,"Patterson, George",1,Away
 1928-03-17,1927,Liverpool,Cardiff City,1-2,1,2,1,1,3,-1,A,"Patterson, George",1,Anfield
@@ -1797,16 +1797,16 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1950-12-23,1950,Sunderland,Liverpool,2-1,2,1,1,1,3,1,H,"Kay, George",1,Away
 1950-12-25,1950,Blackpool,Liverpool,3-0,3,0,1,1,3,3,H,"Kay, George",0,Away
 1950-12-26,1950,Liverpool,Blackpool,1-0,1,0,1,1,1,1,H,"Kay, George",1,Anfield
-1951-01-13,1950,Derby County,Liverpool,1-2,1,2,1,1,3,-1,A,,2,Away
-1951-01-20,1950,Liverpool,Everton,0-2,0,2,1,1,2,-2,A,,0,Anfield
-1951-01-27,1950,Charlton Athletic,Liverpool,1-0,1,0,1,1,1,1,H,,0,Away
-1951-02-03,1950,Liverpool,Fulham,2-0,2,0,1,1,2,2,H,,2,Anfield
-1951-02-10,1950,Liverpool,Portsmouth,2-1,2,1,1,1,3,1,H,,2,Anfield
-1951-02-17,1950,Bolton Wanderers,Liverpool,2-1,2,1,1,1,3,1,H,,1,Away
-1951-02-24,1950,Stoke City,Liverpool,2-3,2,3,1,1,5,-1,A,,3,Away
-1951-03-03,1950,Liverpool,West Bromwich Albion,1-1,1,1,1,1,2,0,D,,1,Anfield
-1951-03-10,1950,Middlesbrough,Liverpool,1-1,1,1,1,1,2,0,D,,1,Away
-1951-03-17,1950,Liverpool,Sheffield Wednesday,2-1,2,1,1,1,3,1,H,,2,Anfield
+1951-01-13,1950,Derby County,Liverpool,1-2,1,2,1,1,3,-1,A,"Kay, George",2,Away
+1951-01-20,1950,Liverpool,Everton,0-2,0,2,1,1,2,-2,A,"Kay, George",0,Anfield
+1951-01-27,1950,Charlton Athletic,Liverpool,1-0,1,0,1,1,1,1,H,"Kay, George",0,Away
+1951-02-03,1950,Liverpool,Fulham,2-0,2,0,1,1,2,2,H,"Kay, George",2,Anfield
+1951-02-10,1950,Liverpool,Portsmouth,2-1,2,1,1,1,3,1,H,"Kay, George",2,Anfield
+1951-02-17,1950,Bolton Wanderers,Liverpool,2-1,2,1,1,1,3,1,H,"Kay, George",1,Away
+1951-02-24,1950,Stoke City,Liverpool,2-3,2,3,1,1,5,-1,A,"Kay, George",3,Away
+1951-03-03,1950,Liverpool,West Bromwich Albion,1-1,1,1,1,1,2,0,D,"Kay, George",1,Anfield
+1951-03-10,1950,Middlesbrough,Liverpool,1-1,1,1,1,1,2,0,D,"Kay, George",1,Away
+1951-03-17,1950,Liverpool,Sheffield Wednesday,2-1,2,1,1,1,3,1,H,"Kay, George",2,Anfield
 1951-03-23,1950,Liverpool,Charlton Athletic,1-0,1,0,1,1,1,1,H,"Welsh, Don",1,Anfield
 1951-03-24,1950,Newcastle United,Liverpool,1-1,1,1,1,1,2,0,D,"Welsh, Don",1,Away
 1951-03-31,1950,Liverpool,Huddersfield Town,1-4,1,4,1,1,5,-3,A,"Welsh, Don",1,Anfield
@@ -2024,7 +2024,7 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1956-04-14,1955,Liverpool,Port Vale,4-1,4,1,2,2,5,3,H,"Welsh, Don",4,Anfield
 1956-04-21,1955,Rotherham United,Liverpool,0-1,0,1,2,2,1,-1,A,"Welsh, Don",1,Away
 1956-04-28,1955,Bristol Rovers,Liverpool,1-2,1,2,2,2,3,-1,A,"Welsh, Don",2,Away
-1956-05-02,1955,Lincoln City,Liverpool,2-0,2,0,2,2,2,2,H,"Taylor, Phil",0,Away
+1956-05-02,1955,Lincoln City,Liverpool,2-0,2,0,2,2,2,2,H,"Welsh, Don",0,Away
 1956-08-18,1956,Liverpool,Huddersfield Town,2-3,2,3,2,2,5,-1,A,"Taylor, Phil",2,Anfield
 1956-08-23,1956,Notts County,Liverpool,1-1,1,1,2,2,2,0,D,"Taylor, Phil",1,Away
 1956-08-25,1956,Bury,Liverpool,0-2,0,2,2,2,2,-2,A,"Taylor, Phil",2,Away
@@ -2168,8 +2168,8 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1959-10-31,1959,Sunderland,Liverpool,1-1,1,1,2,2,2,0,D,"Taylor, Phil",1,Away
 1959-11-07,1959,Liverpool,Aston Villa,2-1,2,1,2,2,3,1,H,"Taylor, Phil",2,Anfield
 1959-11-14,1959,Lincoln City,Liverpool,4-2,4,2,2,2,6,2,H,"Taylor, Phil",2,Away
-1959-11-21,1959,Liverpool,Leyton Orient,4-3,4,3,2,2,7,1,H,,4,Anfield
-1959-11-28,1959,Huddersfield Town,Liverpool,1-0,1,0,2,2,1,1,H,,0,Away
+1959-11-21,1959,Liverpool,Leyton Orient,4-3,4,3,2,2,7,1,H,character(0),4,Anfield
+1959-11-28,1959,Huddersfield Town,Liverpool,1-0,1,0,2,2,1,1,H,character(0),0,Away
 1959-12-05,1959,Liverpool,Ipswich Town,3-1,3,1,2,2,4,2,H,"Shankly, Bill",3,Anfield
 1959-12-12,1959,Bristol Rovers,Liverpool,0-2,0,2,2,2,2,-2,A,"Shankly, Bill",2,Away
 1959-12-19,1959,Liverpool,Cardiff City,0-4,0,4,2,2,4,-4,A,"Shankly, Bill",0,Anfield
@@ -2781,9 +2781,9 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1974-04-24,1973,Liverpool,Arsenal,0-1,0,1,1,1,1,-1,A,"Shankly, Bill",0,Anfield
 1974-04-27,1973,West Ham United,Liverpool,2-2,2,2,1,1,4,0,D,"Shankly, Bill",2,Away
 1974-05-08,1973,Tottenham Hotspur,Liverpool,1-1,1,1,1,1,2,0,D,"Shankly, Bill",1,Away
-1974-08-17,1974,Luton Town,Liverpool,1-2,1,2,1,1,3,-1,A,,2,Away
-1974-08-20,1974,Wolverhampton Wanderers,Liverpool,0-0,0,0,1,1,0,0,D,,0,Away
-1974-08-24,1974,Liverpool,Leicester City,2-1,2,1,1,1,3,1,H,,2,Anfield
+1974-08-17,1974,Luton Town,Liverpool,1-2,1,2,1,1,3,-1,A,character(0),2,Away
+1974-08-20,1974,Wolverhampton Wanderers,Liverpool,0-0,0,0,1,1,0,0,D,character(0),0,Away
+1974-08-24,1974,Liverpool,Leicester City,2-1,2,1,1,1,3,1,H,character(0),2,Anfield
 1974-08-27,1974,Liverpool,Wolverhampton Wanderers,2-0,2,0,1,1,2,2,H,"Paisley, Bob",2,Anfield
 1974-08-31,1974,Chelsea,Liverpool,0-3,0,3,1,1,3,-3,A,"Paisley, Bob",3,Away
 1974-09-07,1974,Liverpool,Tottenham Hotspur,5-2,5,2,1,1,7,3,H,"Paisley, Bob",5,Anfield
@@ -3467,15 +3467,15 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1991-01-19,1990,Liverpool,Wimbledon,1-1,1,1,1,1,2,0,D,"Dalglish, Kenny",1,Anfield
 1991-02-03,1990,Manchester United,Liverpool,1-1,1,1,1,1,2,0,D,"Dalglish, Kenny",1,Away
 1991-02-09,1990,Liverpool,Everton,3-1,3,1,1,1,4,2,H,"Dalglish, Kenny",3,Anfield
-1991-02-23,1990,Luton Town,Liverpool,3-1,3,1,1,1,4,2,H,"Moran, Ronnie",1,Away
-1991-03-03,1990,Liverpool,Arsenal,0-1,0,1,1,1,1,-1,A,"Moran, Ronnie",0,Anfield
-1991-03-09,1990,Manchester City,Liverpool,0-3,0,3,1,1,3,-3,A,"Moran, Ronnie",3,Away
-1991-03-16,1990,Liverpool,Sunderland,2-1,2,1,1,1,3,1,H,"Moran, Ronnie",2,Anfield
-1991-03-23,1990,Derby County,Liverpool,1-7,1,7,1,1,8,-6,A,"Moran, Ronnie",7,Away
-1991-03-30,1990,Liverpool,Queens Park Rangers,1-3,1,3,1,1,4,-2,A,"Moran, Ronnie",1,Anfield
-1991-04-01,1990,Southampton,Liverpool,1-0,1,0,1,1,1,1,H,"Moran, Ronnie",0,Away
-1991-04-09,1990,Liverpool,Coventry City,1-1,1,1,1,1,2,0,D,"Moran, Ronnie",1,Anfield
-1991-04-13,1990,Leeds United,Liverpool,4-5,4,5,1,1,9,-1,A,"Moran, Ronnie",5,Away
+1991-02-23,1990,Luton Town,Liverpool,3-1,3,1,1,1,4,2,H,"Moran*, Ronnie",1,Away
+1991-03-03,1990,Liverpool,Arsenal,0-1,0,1,1,1,1,-1,A,"Moran*, Ronnie",0,Anfield
+1991-03-09,1990,Manchester City,Liverpool,0-3,0,3,1,1,3,-3,A,"Moran*, Ronnie",3,Away
+1991-03-16,1990,Liverpool,Sunderland,2-1,2,1,1,1,3,1,H,"Moran*, Ronnie",2,Anfield
+1991-03-23,1990,Derby County,Liverpool,1-7,1,7,1,1,8,-6,A,"Moran*, Ronnie",7,Away
+1991-03-30,1990,Liverpool,Queens Park Rangers,1-3,1,3,1,1,4,-2,A,"Moran*, Ronnie",1,Anfield
+1991-04-01,1990,Southampton,Liverpool,1-0,1,0,1,1,1,1,H,"Moran*, Ronnie",0,Away
+1991-04-09,1990,Liverpool,Coventry City,1-1,1,1,1,1,2,0,D,"Moran*, Ronnie",1,Anfield
+1991-04-13,1990,Leeds United,Liverpool,4-5,4,5,1,1,9,-1,A,"Moran*, Ronnie",5,Away
 1991-04-20,1990,Liverpool,Norwich City,3-0,3,0,1,1,3,3,H,"Souness, Graeme",3,Anfield
 1991-04-23,1990,Liverpool,Crystal Palace,3-0,3,0,1,1,3,3,H,"Souness, Graeme",3,Anfield
 1991-05-04,1990,Chelsea,Liverpool,4-2,4,2,1,1,6,2,H,"Souness, Graeme",2,Away
@@ -3763,18 +3763,18 @@ Date,Season,home,visitor,FT,hgoal,vgoal,division,tier,totgoal,goaldif,result,mng
 1998-05-02,1997,Liverpool,West Ham United,5-0,5,0,1,1,5,5,H,"Evans, Roy",5,Anfield
 1998-05-06,1997,Liverpool,Arsenal,4-0,4,0,1,1,4,4,H,"Evans, Roy",4,Anfield
 1998-05-10,1997,Derby County,Liverpool,1-0,1,0,1,1,1,1,H,"Evans, Roy",0,Away
-1998-08-16,1998,Southampton,Liverpool,1-2,1,2,1,1,3,-1,A,"Houllier, Gérard",2,Away
-1998-08-22,1998,Liverpool,Arsenal,0-0,0,0,1,1,0,0,D,"Houllier, Gérard",0,Anfield
-1998-08-30,1998,Newcastle United,Liverpool,1-4,1,4,1,1,5,-3,A,"Houllier, Gérard",4,Away
-1998-09-09,1998,Liverpool,Coventry City,2-0,2,0,1,1,2,2,H,"Houllier, Gérard",2,Anfield
-1998-09-12,1998,West Ham United,Liverpool,2-1,2,1,1,1,3,1,H,"Houllier, Gérard",1,Away
-1998-09-19,1998,Liverpool,Charlton Athletic,3-3,3,3,1,1,6,0,D,"Houllier, Gérard",3,Anfield
-1998-09-24,1998,Manchester United,Liverpool,2-0,2,0,1,1,2,2,H,"Houllier, Gérard",0,Away
-1998-10-04,1998,Liverpool,Chelsea,1-1,1,1,1,1,2,0,D,"Houllier, Gérard",1,Anfield
-1998-10-17,1998,Everton,Liverpool,0-0,0,0,1,1,0,0,D,"Houllier, Gérard",0,Away
-1998-10-24,1998,Liverpool,Nottingham Forest,5-1,5,1,1,1,6,4,H,"Houllier, Gérard",5,Anfield
-1998-10-31,1998,Leicester City,Liverpool,1-0,1,0,1,1,1,1,H,"Houllier, Gérard",0,Away
-1998-11-07,1998,Liverpool,Derby County,1-2,1,2,1,1,3,-1,A,"Houllier, Gérard",1,Anfield
+1998-08-16,1998,Southampton,Liverpool,1-2,1,2,1,1,3,-1,A,"Evans, Roy",2,Away
+1998-08-22,1998,Liverpool,Arsenal,0-0,0,0,1,1,0,0,D,"Evans, Roy",0,Anfield
+1998-08-30,1998,Newcastle United,Liverpool,1-4,1,4,1,1,5,-3,A,"Evans, Roy",4,Away
+1998-09-09,1998,Liverpool,Coventry City,2-0,2,0,1,1,2,2,H,"Evans, Roy",2,Anfield
+1998-09-12,1998,West Ham United,Liverpool,2-1,2,1,1,1,3,1,H,"Evans, Roy",1,Away
+1998-09-19,1998,Liverpool,Charlton Athletic,3-3,3,3,1,1,6,0,D,"Evans, Roy",3,Anfield
+1998-09-24,1998,Manchester United,Liverpool,2-0,2,0,1,1,2,2,H,"Evans, Roy",0,Away
+1998-10-04,1998,Liverpool,Chelsea,1-1,1,1,1,1,2,0,D,"Evans, Roy",1,Anfield
+1998-10-17,1998,Everton,Liverpool,0-0,0,0,1,1,0,0,D,"Evans, Roy",0,Away
+1998-10-24,1998,Liverpool,Nottingham Forest,5-1,5,1,1,1,6,4,H,"Evans, Roy",5,Anfield
+1998-10-31,1998,Leicester City,Liverpool,1-0,1,0,1,1,1,1,H,"Evans, Roy",0,Away
+1998-11-07,1998,Liverpool,Derby County,1-2,1,2,1,1,3,-1,A,"Evans, Roy",1,Anfield
 1998-11-14,1998,Liverpool,Leeds United,1-3,1,3,1,1,4,-2,A,"Houllier, Gérard",1,Anfield
 1998-11-21,1998,Aston Villa,Liverpool,2-4,2,4,1,1,6,-2,A,"Houllier, Gérard",4,Away
 1998-11-29,1998,Liverpool,Blackburn Rovers,2-0,2,0,1,1,2,2,H,"Houllier, Gérard",2,Anfield

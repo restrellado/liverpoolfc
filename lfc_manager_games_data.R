@@ -1,4 +1,5 @@
 library(tidyverse)
+library(engsoccerdata)
 
 # Read in managers dataset
 mngrs_clean <- read_csv("output/lfc_managers.csv") %>% 
@@ -14,7 +15,6 @@ lfc_mngrs <- as.tibble(england) %>%
 
 #------------------------------------------------------------------------------
 
-# TODO fix "c(\"Evans, Roy\", \"EvansGérard, Roy\", \"Houllier, Gérard\")"
 # Add managers to the games dataset 
 
 # Create a vector of managers to add to the games dataset
@@ -29,13 +29,6 @@ lfc_mngrs$mngr <- game_mngrs
 
 #------------------------------------------------------------------------------
 
-# Store records with no manager here
-no_mngr <- filter(lfc_mngrs, mngr == "")
-
-nrow(no_mngr)
-
-#------------------------------------------------------------------------------
-
 # New goals column and at Anfield column
 lfc_mngrs <- lfc_mngrs %>% 
   mutate(
@@ -43,4 +36,10 @@ lfc_mngrs <- lfc_mngrs %>%
     lfc_goals = ifelse(home == "Liverpool", hgoal, vgoal), 
     at_anf = "", 
     at_anf = ifelse(home == "Liverpool", "Anfield", "Away")
-  )
+  ) 
+
+#------------------------------------------------------------------------------
+
+# Write file 
+
+write_csv(lfc_mngrs, "output/lfc_manager_games.csv")
