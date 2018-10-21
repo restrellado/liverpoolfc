@@ -66,10 +66,12 @@ mngrs_clean <- mngrs_clean %>%
          Nationality = if_else(
            Nationality == "Ireland Ireland", "Ireland", Nationality
            ), 
-         # Fix To date for last entry
-         To = if_else(row_number() == 23, as.Date(now()), To), 
          # Remove spade symbol
          win_perc = str_sub(win_perc, 2))
+
+# Fix To date for last entry
+mngrs_clean <- mngrs_clean %>%
+  mutate(To = if_else(row_number() == nrow(mngrs_clean), as.Date(now()), To))
 
 # Convert manager names to last, first format
 s <- str_split_fixed(mngrs_clean$Name, " ", n = Inf)
